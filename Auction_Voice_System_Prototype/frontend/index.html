@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Auction Voice Agent • Home</title>
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+  body{font-family:'Space Grotesk',sans-serif;background:#000;color:#fff;min-height:100vh}
+  .gradient-text{background:linear-gradient(90deg,#00ff9d,#00b8ff,#ff00aa);
+                 -webkit-background-clip:text;color:transparent}
+  .card{background:#121212;border:1px solid #1e1e1e;border-radius:1.2rem;
+        transition:transform .3s,box-shadow .3s}
+  .card:hover{transform:translateY(-6px);box-shadow:0 0 25px rgba(0,255,157,.35)}
+</style>
+</head>
+<body class="flex flex-col items-center justify-center text-center px-6">
+  <h1 class="text-5xl font-bold gradient-text mb-2">Auction Voice Agent</h1>
+  <p class="text-gray-400 mb-12 max-w-xl">Real-time bidding through AI-powered voice &amp; a live dashboard — experience both below.</p>
+
+  <div class="grid gap-10 md:grid-cols-2 w-full max-w-3xl">
+    <!-- Simulate Call -->
+    <a href="simulate.html" class="card p-10 flex flex-col items-center">
+      <i class="fa-solid fa-headset text-4xl text-[#00ff9d] mb-6"></i>
+      <h2 class="text-2xl font-semibold mb-2">Simulate Call</h2>
+      <p class="text-gray-400 text-sm">Chat with the voice agent inside your browser, place bids, get updates.</p>
+    </a>
+
+    <!-- Live Stats -->
+    <a href="stats.html" class="card p-10 flex flex-col items-center">
+      <i class="fa-solid fa-chart-column text-4xl text-[#00b8ff] mb-6"></i>
+      <h2 class="text-2xl font-semibold mb-2">Live Stats</h2>
+      <p class="text-gray-400 text-sm">View active auctions, highest bids and full bidding history in real-time.</p>
+    </a>
+  </div>
+
+  <footer class="mt-20 text-xs text-gray-500">Made with ❤️ by <u><b>Team 7</b></u></footer>
+</body>
+</html>
