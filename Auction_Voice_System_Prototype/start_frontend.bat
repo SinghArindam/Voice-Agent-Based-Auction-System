@@ -1,0 +1,3 @@
+@echo off
+echo Running Frontend...
+start "" "frontend\login.html"
