@@ -1,49 +1,44 @@
-<!DOCTYPE html>
+<!-- simulate_prototype.html  (scroll-enabled version) -->
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Simulated Call • Auction Voice Agent</title>
 
+<!-- libs -->
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link  href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/* ------------  layout / theme  ------------ */
 body{font-family:'Space Grotesk',sans-serif;background:#000;color:#fff;height:100vh;overflow:hidden}
+.gradient-text{background:linear-gradient(90deg,#00ff9d,#00b8ff,#ff00aa);-webkit-background-clip:text;color:transparent}
+.card{background:#121212;border:1px solid #1e1e1e;border-radius:1.25rem;display:flex;flex-direction:column;position:relative;z-index:1}
 
-/* ─────────── Background ripple ─────────── */
-.ripple-bg{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
-           width:330px;height:330px;pointer-events:none;z-index:0}
-.ripple-bg span{position:absolute;inset:0;border:3px solid #00ff9d;border-radius:50%;
-                animation:ripple 6s linear infinite}
+/* each card gets its own scrollbar when content grows */
+.card{max-height:80vh;overflow-y:auto}
+#chat-log,#bid-list{max-height:60vh;overflow-y:auto}
+
+/* ripple backdrop */
+.ripple-bg{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:330px;height:330px;pointer-events:none;z-index:0}
+.ripple-bg span{position:absolute;inset:0;border:3px solid #00ff9d;border-radius:50%;animation:ripple 6s linear infinite}
 .ripple-bg span:nth-child(2){border-color:#00b8ff;animation-delay:1.2s}
 .ripple-bg span:nth-child(3){border-color:#ff00aa;animation-delay:2.4s}
 @keyframes ripple{0%{transform:scale(.4);opacity:.9}70%{opacity:.05}100%{transform:scale(3);opacity:0}}
-
-/* ─────────── Generic UI ─────────── */
-.gradient-text{background:linear-gradient(90deg,#00ff9d,#00b8ff,#ff00aa);-webkit-background-clip:text;color:transparent}
-.card{background:#121212;border:1px solid #1e1e1e;border-radius:1.25rem;position:relative;z-index:1;display:flex;flex-direction:column}
 
 /* bubbles */
 .bubble{max-width:90%;padding:.65rem 1rem;border-radius:1rem;margin:.25rem 0;font-size:.9rem}
 .ai   {background:#1e1e1e}
 .user {background:#00ff9d;color:#000;margin-left:auto}
 
-/* call card glow  */
-/* .call-card::before{content:"";position:absolute;inset:-2px;border-radius:inherit;
-  background:conic-gradient(from 180deg at 50% 50%,#00ff9d,#00b8ff,#ff00aa,#00ff9d);
-  filter:blur(10px);animation:spin 6s linear infinite;z-index:-1}@keyframes spin{to{transform:rotate(1turn)}} */
-
-
-
 /* microphone */
 .mic-wrapper{position:relative;width:130px;height:130px;display:flex;align-items:center;justify-content:center}
 .mic-circle{position:absolute;width:100%;height:100%;border-radius:50%;
-  background:linear-gradient(135deg,#00ff9d,#00b8ff,#ff00aa);
-  box-shadow:0 0 40px rgba(0,255,157,.35),0 0 70px rgba(0,184,255,.25),0 0 90px rgba(255,0,170,.2);
-  display:flex;align-items:center;justify-content:center}
+            background:linear-gradient(135deg,#00ff9d,#00b8ff,#ff00aa);
+            box-shadow:0 0 40px rgba(0,255,157,.35),0 0 70px rgba(0,184,255,.25),0 0 90px rgba(255,0,170,.2);
+            display:flex;align-items:center;justify-content:center}
 .mic-icon{font-size:56px;color:#000;z-index:2}
 @keyframes pulse{0%{transform:scale(.8);opacity:.7}50%{transform:scale(1.4);opacity:0}100%{transform:scale(.8);opacity:.7}}
 .pulse-ring{position:absolute;border:3px solid #00ff9d;border-radius:50%;width:160%;height:160%;opacity:.7;animation:pulse 3s infinite}
@@ -54,37 +49,39 @@ body{font-family:'Space Grotesk',sans-serif;background:#000;color:#fff;height:10
 
 <body class="flex flex-col">
 
-<!-- background -->
+<!-- backdrop -->
 <div class="ripple-bg"><span></span><span></span><span></span></div>
 
 <!-- header -->
 <header class="flex-none border-b border-[#1e1e1e] py-4 px-6 flex justify-between items-center z-10">
   <span class="text-lg md:text-xl font-bold gradient-text">Auction Voice Agent</span>
-  <a href="index.html" class="text-gray-400 hover:text-[#00ff9d] text-sm">⟵ Home</a>
+  <a href="#" class="text-gray-400 hover:text-[#00ff9d] text-sm">&larr; Home</a>
 </header>
 
-<!-- main (fills remaining height, no outer scroll) -->
+<!-- main grid -->
 <main class="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-6 px-4 py-6 overflow-hidden z-10">
 
-  <!-- chat card -->
+  <!-- chat -->
   <section class="card lg:col-span-1">
     <header class="p-5 border-b border-[#1e1e1e] text-center">
       <h2 class="text-lg font-semibold gradient-text">Chat</h2>
     </header>
 
-    <div id="chat-log" class="flex-1 overflow-y-auto p-5 scroll-smooth">
+    <div id="chat-log" class="flex-1 p-5 scroll-smooth">
       <div class="bubble ai">Assistant: Hello! Say “list items” to hear current auctions.</div>
     </div>
 
     <form id="chat-form" class="p-5 border-t border-[#1e1e1e] flex gap-3">
       <input id="chat-input" placeholder="Type your message…" autocomplete="off"
              class="flex-1 bg-[#1e1e1e]/70 px-4 py-3 rounded-xl focus:outline-none"/>
-      <button class="bg-[#00ff9d] text-black px-6 rounded-xl font-semibold hover:bg-[#00d97d]" type="submit">Send</button>
+      <button class="bg-[#00ff9d] text-black px-6 rounded-xl font-semibold hover:bg-[#00d97d] shrink-0" type="submit">
+        Send
+      </button>
     </form>
   </section>
 
-  <!-- call status card -->
-  <section class="card call-card lg:col-span-1 flex items-center justify-center">
+  <!-- call status -->
+  <section class="card lg:col-span-1 flex items-center justify-center">
     <div class="flex flex-col items-center">
       <div class="mic-wrapper mb-12">
         <div class="mic-circle"><i class="fas fa-microphone mic-icon"></i></div>
@@ -94,71 +91,128 @@ body{font-family:'Space Grotesk',sans-serif;background:#000;color:#fff;height:10
     </div>
   </section>
 
-  <!-- bid history card -->
+  <!-- recent bids -->
   <section class="card lg:col-span-1">
     <header class="p-5 border-b border-[#1e1e1e]">
       <h2 class="text-lg font-semibold text-[#00b8ff]">Recent Bids</h2>
     </header>
-    <div id="bid-list" class="flex-1 overflow-y-auto p-5 space-y-3 text-sm"></div>
+    <div id="bid-list" class="flex-1 p-5 space-y-3 text-sm"></div>
   </section>
 </main>
 
-<!-- footer (fixed height, no scroll) -->
+<!-- footer -->
 <footer class="flex-none text-center text-gray-500 text-xs py-3 border-t border-[#1e1e1e] z-10">
-  Made&nbsp;with&nbsp;❤️&nbsp;by&nbsp;<b>Team&nbsp;7</b>
+  Made with ❤️ by <b>Team 7</b>
 </footer>
 
-
-<!-- JS -->
- <script id="omnidimension-web-widget" async src="https://backend.omnidim.io/web_widget.js?secret_key=2884806a63ac6f7554094cf290e70a84" ></script>
-
- <script id="omnidimension-web-widget" async src="https://backend.omnidim.io/web_widget.js?secret_key=2884806a63ac6f7554094cf290e70a84" ></script>
-
-
- 
-<!-- JS -->
+<!-- =============================================================== -->
 <script>
-const AGENT="http://localhost:5000/simulate";
-const API  ="http://localhost:8000";
+/* ------------ config ------------ */
+const API = "http://localhost:8000";   // FastAPI base
+const MAX_ROWS = 60;
 
-/* chat send */
-const log=document.getElementById('chat-log');
-const input=document.getElementById('chat-input');
-document.getElementById('chat-form').addEventListener('submit',async e=>{
-  e.preventDefault();
-  const txt=input.value.trim(); if(!txt) return;
-  addBubble(`You: ${txt}`,'user'); input.value="";
-  try{
-    const {text}=await fetch(AGENT,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({utterance:txt,callerId:'web'})}).then(r=>r.json());
-    addBubble(`Assistant: ${text}`,'ai');
-  }catch{addBubble("Assistant: (server error)",'ai')}
-});
-function addBubble(t,cls){
-  const d=document.createElement('div');d.className=`bubble ${cls}`;d.textContent=t;
-  log.appendChild(d);log.scrollTop=log.scrollHeight;
+/* ------------ helpers ------------ */
+const chatLog = document.getElementById("chat-log");
+const chatInput = document.getElementById("chat-input");
+
+function bubble(text, cls){
+  const d=document.createElement("div");
+  d.className=`bubble ${cls}`;
+  d.textContent=text;
+  chatLog.appendChild(d);
+  chatLog.scrollTop=chatLog.scrollHeight;
+}
+function speak(txt){speechSynthesis.speak(new SpeechSynthesisUtterance(txt));}
+
+/* BACKEND */
+const getProducts = () => fetch(`${API}/products`).then(r=>r.json());
+const getProduct  = id => fetch(`${API}/products/${id}`).then(r=>{if(!r.ok)throw 0;return r.json()});
+const postBid     = (id,amt)=>fetch(`${API}/products/${id}/bids`,{
+  method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({amount:amt,bidder:"Web"})})
+  .then(r=>r.ok?r.json():r.json().then(e=>Promise.reject(e.detail)));
+
+/* INTENT HANDLER */
+async function handle(cmd){
+  const t=cmd.toLowerCase().trim();
+
+  // list
+  if(t.startsWith("list")){
+    const lots=await getProducts();
+    const msg=lots.map(l=>`${l.name} at $${l.highestBid}`).join("; ");
+    respond(`We have ${msg}. Which one interests you?`);
+    return;
+  }
+  // price
+  let m=t.match(/price.*?(lot-\d+)/);
+  if(m){
+    const lot=await getProduct(m[1]);
+    respond(`${lot.name} is at $${lot.highestBid} with ${lot.bids.length} bids and ${left(lot.endsAt)} remaining.`);
+    return;
+  }
+  // bid
+  m=t.match(/bid\s+(\d+)\s*(?:on)?\s*(lot-\d+)/);
+  if(m){
+    const amt=Number(m[1]), id=m[2];
+    try{await postBid(id,amt); respond(`Your bid of $${amt} is now the highest on ${id}!`);}
+    catch(e){respond(e);}
+    loadBids();
+    return;
+  }
+  respond("Sorry, try “list items” or “bid 200 on lot-2”.");
 }
 
-/* timer */
-const timer=document.getElementById('call-time');let s=0;
-setInterval(()=>{s++;timer.textContent=`${String(s/60|0).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`},1e3);
+/* seconds-left helper */
+const left = iso => {
+  const s=Math.max(0,(new Date(iso)-Date.now())/1000|0);
+  return s>59?`${s/60|0}m${String(s%60).padStart(2,"0")}s`:`${s}s`;
+};
 
-/* load bids */
+/* CHAT form */
+document.getElementById("chat-form").addEventListener("submit",e=>{
+  e.preventDefault();
+  const txt=chatInput.value.trim(); if(!txt)return;
+  bubble(`You: ${txt}`,"user");
+  chatInput.value="";
+  handle(txt);
+});
+
+/* assistant reply */
+function respond(txt){bubble(`Assistant: ${txt}`,"ai");speak(txt);}
+
+/* BID sidebar */
 async function loadBids(){
   try{
-    const prods=await fetch(API+"/products").then(r=>r.json());
-    const bids=prods.flatMap(p=>p.bids.map(b=>({...b,item:p.name})))
-                    .sort((a,b)=>new Date(b.ts)-new Date(a.ts)).slice(0,50);
-    const wrap=document.getElementById('bid-list');wrap.innerHTML="";
-    bids.forEach(b=>{
-      wrap.insertAdjacentHTML('beforeend',`
+    const prods=await getProducts();
+    const rows=prods.flatMap(p=>p.bids.map(b=>({...b,item:p.name})))
+                    .sort((a,b)=>new Date(b.ts)-new Date(a.ts))
+                    .slice(0,MAX_ROWS);
+    const wrap=document.getElementById("bid-list");
+    wrap.innerHTML="";
+    rows.forEach(b=>{
+      wrap.insertAdjacentHTML("beforeend",`
         <div class="flex justify-between border-b border-[#1e1e1e] pb-1">
           <span>${b.item}<span class="text-gray-500 ml-1">by ${b.bidder}</span></span>
           <span class="text-[#00ff9d] font-medium">$${b.amount}</span>
-        </div>`);});
+        </div>`);
+    });
   }catch{}
 }
-loadBids();setInterval(loadBids,5000);
+loadBids(); setInterval(loadBids,5000);
+
+/* TIMER */
+const t=document.getElementById("call-time");let sec=0;
+setInterval(()=>{sec++;t.textContent=`${String(sec/60|0).padStart(2,"0")}:${String(sec%60).padStart(2,"0")}`},1000);
+
+/* optional voice-input (Chrome) */
+if("webkitSpeechRecognition"in window){
+ const rec=new webkitSpeechRecognition();
+ rec.continuous=true;rec.interimResults=false;rec.lang="en-US";
+ rec.onresult=e=>{
+   const p=e.results[e.results.length-1][0].transcript.trim();
+   bubble(`You: ${p}`,"user");handle(p);
+ };
+ rec.onerror=console.error;rec.start();
+}
 </script>
 </body>
 </html>
