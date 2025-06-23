@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Login • Auction Voice Agent</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gradient-text {
+    background: linear-gradient(90deg, #00ff9d, #00b8ff, #ff00aa);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  .login-card {
+    background: #121212;
+    border: 1px solid #1e1e1e;
+    border-radius: 1.2rem;
+    padding: 3rem;
+    text-align: center;
+  }
+  #camera-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+  }
+  #video-container {
+    position: relative;
+    width: 480px;
+    height: 360px;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 2px solid #00ff9d;
+  }
+  #video {
+    width: 100%;
+    height: 100%;
+    transform: scaleX(-1); /* Mirror effect */
+  }
+  .scanner-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,255,157,0.5), transparent);
+    animation: scan 3s linear 1;
+  }
+  @keyframes scan {
+    0% { top: 100%; }
+    100% { top: -100%; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="login-card">
+    <i class="fa-solid fa-shield-halved text-5xl gradient-text mb-6"></i>
+    <h1 class="text-3xl font-bold mb-2">Auction System</h1>
+    <p class="text-gray-400 mb-8">Login with Face ID to continue</p>
+    <button id="login-btn" class="bg-gradient-to-r from-[#00ff9d] to-[#00b8ff] text-black font-bold py-3 px-8 rounded-lg">
+      <i class="fa-solid fa-camera mr-2"></i>
+      Authenticate
+    </button>
+  </div>
+
+  <div id="camera-modal">
+    <div id="video-container">
+      <video id="video" autoplay playsinline></video>
+      <div class="scanner-animation"></div>
+      <p id="status-text" class="absolute bottom-4 left-0 right-0 text-center font-semibold text-lg"></p>
+    </div>
+  </div>
+
+<script>
+const loginBtn = document.getElementById('login-btn');
+const cameraModal = document.getElementById('camera-modal');
+const video = document.getElementById('video');
+const statusText = document.getElementById('status-text');
+
+loginBtn.addEventListener('click', async () => {
+  cameraModal.style.display = 'flex';
+  statusText.textContent = 'Starting camera...';
+
+  try {
+    // Start camera stream
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    video.srcObject = stream;
+    
+    video.onloadedmetadata = () => {
+      // Once camera is ready, start the "authentication"
+      statusText.textContent = 'Scanning...';
+      
+      // Simulate scanning for 3 seconds
+      setTimeout(() => {
+        statusText.textContent = 'Authenticated!';
+        // After another second, redirect to the main page
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 1000);
+      }, 3000);
+    };
+
+  } catch (err) {
+    console.error("Error accessing camera: ", err);
+    statusText.textContent = 'Camera access denied!';
+    // Hide modal after 2 seconds if camera fails
+    setTimeout(() => {
+        cameraModal.style.display = 'none';
+    }, 2000);
+  }
+});
+</script>
+</body>
+</html>
