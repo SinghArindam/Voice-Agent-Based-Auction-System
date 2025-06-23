@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Live Stats • Auction Voice Agent</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+  body{font-family:'Space Grotesk',sans-serif;background:#000;color:#fff;min-height:100vh}
+  .gradient-text{background:linear-gradient(90deg,#00ff9d,#00b8ff,#ff00aa);
+                 -webkit-background-clip:text;color:transparent}
+  .card{background:#121212;border:1px solid #1e1e1e;border-radius:1.2rem;padding:2rem}
+</style>
+</head>
+<body class="px-6 py-8">
+
+  <header class="mb-10 text-center">
+    <h1 class="text-4xl font-bold gradient-text">Live Auction Stats</h1>
+    <p class="text-gray-400">Data auto-refreshes every 5 seconds.</p>
+  </header>
+
+  <!-- KPI Cards -->
+  <section id="kpi" class="grid gap-6 md:grid-cols-3 mb-12"></section>
+
+  <!-- Active auctions table -->
+  <section class="card mb-12">
+    <h2 class="text-xl font-semibold mb-4">Active Auctions</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left whitespace-nowrap" id="prod-table">
+        <thead class="text-gray-400 border-b border-[#1e1e1e]">
+          <tr><th>ID</th><th>Name</th><th>Highest Bid</th><th>Bids</th><th>Ends In</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Recent bids -->
+  <section class="card">
+    <h2 class="text-xl font-semibold mb-4">Recent Bids</h2>
+    <ul id="bid-log" class="max-h-96 overflow-y-auto space-y-4"></ul>
+  </section>
+
+<script>
+const API="http://localhost:8000";
+const kpi=document.getElementById('kpi');
+const tBody=document.querySelector('#prod-table tbody');
+const bidLog=document.getElementById('bid-log');
+
+function minsLeft(ts){return Math.max(0,Math.floor((new Date(ts)-Date.now())/60000))+" min";}
+function card(label,val,color,icon){return`
+  <div class="card flex justify-between items-center">
+    <div>
+      <p class="text-gray-400 text-xs">${label}</p>
+      <h3 class="text-2xl font-bold text-${color}">${val}</h3>
+    </div>
+    <i class="fa-solid ${icon} text-3xl text-${color}"></i>
+  </div>`;}
+
+async function refresh(){
+  // KPIs
+  const stats=await fetch(API+"/stats").then(r=>r.json());
+  const tot=stats.reduce((a,b)=>a+b.bidCount,0);
+  const hi=Math.max(...stats.map(s=>s.highestBid,0));
+  kpi.innerHTML=card("Active Auctions",stats.length,"[#00ff9d]","fa-gavel")+
+                card("Total Bids",tot,"[#00b8ff]","fa-hand-holding-usd")+
+                card("Highest Bid",`$${hi}`,"[#ff00aa]","fa-trophy");
+
+  // Products table
+  const prods=await fetch(API+"/products").then(r=>r.json());
+  tBody.innerHTML=prods.map(p=>`
+      <tr class="border-b border-[#1e1e1e]">
+        <td class="pr-3 py-2">${p.id.slice(0,6)}…</td>
+        <td class="pr-3 py-2">${p.name}</td>
+        <td class="pr-3 py-2">$${p.highestBid}</td>
+        <td class="pr-3 py-2">${p.bids.length}</td>
+        <td class="pr-3 py-2">${minsLeft(p.endTime)}</td>
+      </tr>`).join("");
+
+  // Recent bids
+  const all=prods.flatMap(p=>p.bids.map(b=>({...b,product:p.name})))
+                 .sort((a,b)=>new Date(b.ts)-new Date(a.ts)).slice(0,25);
+  bidLog.innerHTML=all.map(b=>`
+    <li class="flex justify-between items-center border-b border-[#1e1e1e] pb-2">
+      <span>${b.product}<span class="text-gray-500 text-xs ml-2">by ${b.bidder}</span></span>
+      <span class="text-[#00ff9d] font-medium">$${b.amount}</span>
+    </li>`).join("");
+}
+refresh();setInterval(refresh,5000);
+</script>
+</body>
+</html>
