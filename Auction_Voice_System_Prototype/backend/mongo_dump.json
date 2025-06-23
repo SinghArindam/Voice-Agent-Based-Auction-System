@@ -1,0 +1,1344 @@
+{
+  "products": [
+    {
+      "id": "c5d38d9c-65db-4f73-8e31-10931e6b5a1f",
+      "name": "Open-architected human-resource matrix",
+      "desc": "Contain though radio notice.",
+      "endTime": "2025-06-23T09:27:11.320000",
+      "highestBid": 342,
+      "bids": [
+        {
+          "amount": 286.0,
+          "bidder": "Amanda",
+          "ts": "2025-06-23T09:23:11.320000"
+        },
+        {
+          "amount": 305.0,
+          "bidder": "Mary",
+          "ts": "2025-06-23T09:23:11.320000"
+        },
+        {
+          "amount": 342.0,
+          "bidder": "Eric",
+          "ts": "2025-06-23T09:23:11.320000"
+        }
+      ]
+    },
+    {
+      "id": "4af5fb86-9ac8-4993-bd7d-573e39cecaf9",
+      "name": "Programmable intangible productivity",
+      "desc": "Serious sign beat above control political particularly.",
+      "endTime": "2025-06-23T09:29:11.320000",
+      "highestBid": 167,
+      "bids": [
+        {
+          "amount": 167.0,
+          "bidder": "Caroline",
+          "ts": "2025-06-23T09:23:11.335000"
+        }
+      ]
+    },
+    {
+      "id": "62012c66-7350-4b2c-8d9e-36be7c89f258",
+      "name": "Intuitive logistical protocol",
+      "desc": "Approach six thing or across.",
+      "endTime": "2025-06-23T09:33:11.320000",
+      "highestBid": 1407,
+      "bids": [
+        {
+          "amount": 269.0,
+          "bidder": "Marissa",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 305.0,
+          "bidder": "Trevor",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 347.0,
+          "bidder": "Travis",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 378.0,
+          "bidder": "Sarah",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 405.0,
+          "bidder": "Diane",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 448.0,
+          "bidder": "Erika",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 485.0,
+          "bidder": "Cristian",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 491.0,
+          "bidder": "Andrew",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 536.0,
+          "bidder": "Mary",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 552.0,
+          "bidder": "Arthur",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 585.0,
+          "bidder": "Michael",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 624.0,
+          "bidder": "Ashley",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 637.0,
+          "bidder": "Karen",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 658.0,
+          "bidder": "Katrina",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 667.0,
+          "bidder": "Rachel",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 694.0,
+          "bidder": "Tyler",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 739.0,
+          "bidder": "Christina",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 763.0,
+          "bidder": "Lisa",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 811.0,
+          "bidder": "Michael",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 838.0,
+          "bidder": "Catherine",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 865.0,
+          "bidder": "Sheila",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 911.0,
+          "bidder": "Melissa",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 924.0,
+          "bidder": "Jennifer",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 970.0,
+          "bidder": "Meredith",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1013.0,
+          "bidder": "Michelle",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1063.0,
+          "bidder": "Wayne",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1110.0,
+          "bidder": "Charles",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1116.0,
+          "bidder": "Gabriel",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1157.0,
+          "bidder": "Carlos",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1200.0,
+          "bidder": "Jesse",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1244.0,
+          "bidder": "Andrea",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1267.0,
+          "bidder": "Miguel",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1274.0,
+          "bidder": "Willie",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1304.0,
+          "bidder": "James",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1342.0,
+          "bidder": "Craig",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1357.0,
+          "bidder": "Phillip",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1368.0,
+          "bidder": "Natalie",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1389.0,
+          "bidder": "Thomas",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1400.0,
+          "bidder": "Gabrielle",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1407.0,
+          "bidder": "Scott",
+          "ts": "2025-06-23T09:23:11.335000"
+        }
+      ]
+    },
+    {
+      "id": "c7c7a7c0-e24b-4be3-94b0-f42bd409f705",
+      "name": "Reverse-engineered radical concept",
+      "desc": "Such nation big country street better western.",
+      "endTime": "2025-06-23T09:26:11.320000",
+      "highestBid": 777,
+      "bids": [
+        {
+          "amount": 465.0,
+          "bidder": "Cassandra",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 485.0,
+          "bidder": "Kathleen",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 515.0,
+          "bidder": "Sean",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 543.0,
+          "bidder": "Robert",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 570.0,
+          "bidder": "Adam",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 599.0,
+          "bidder": "Natalie",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 606.0,
+          "bidder": "Elizabeth",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 637.0,
+          "bidder": "Stephanie",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 664.0,
+          "bidder": "Lisa",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 688.0,
+          "bidder": "Debra",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 702.0,
+          "bidder": "William",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 743.0,
+          "bidder": "Beverly",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 777.0,
+          "bidder": "Ashley",
+          "ts": "2025-06-23T09:23:11.335000"
+        }
+      ]
+    },
+    {
+      "id": "cbc26c15-596f-4e90-8dc9-311ac5e9a0ec",
+      "name": "Re-contextualized clear-thinking hierarchy",
+      "desc": "Know move amount yet open night.",
+      "endTime": "2025-06-23T09:32:11.320000",
+      "highestBid": 637,
+      "bids": [
+        {
+          "amount": 446.0,
+          "bidder": "Tammy",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 496.0,
+          "bidder": "Joshua",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 514.0,
+          "bidder": "Amanda",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 542.0,
+          "bidder": "Cristina",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 592.0,
+          "bidder": "John",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 637.0,
+          "bidder": "Gary",
+          "ts": "2025-06-23T09:23:11.335000"
+        }
+      ]
+    },
+    {
+      "id": "83ff14bd-f1a8-4583-8f70-883648b09278",
+      "name": "Virtual modular algorithm",
+      "desc": "Myself goal fire current work candidate fast.",
+      "endTime": "2025-06-23T09:32:11.320000",
+      "highestBid": 197,
+      "bids": [
+        {
+          "amount": 115.0,
+          "bidder": "Mikayla",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 137.0,
+          "bidder": "Joseph",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 185.0,
+          "bidder": "David",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 197.0,
+          "bidder": "Sarah",
+          "ts": "2025-06-23T09:23:11.335000"
+        }
+      ]
+    },
+    {
+      "id": "a35057fc-c069-45c8-a831-98c320b60398",
+      "name": "Expanded intangible parallelism",
+      "desc": "Industry receive serious situation foot main news.",
+      "endTime": "2025-06-23T09:29:11.320000",
+      "highestBid": 521,
+      "bids": [
+        {
+          "amount": 293.0,
+          "bidder": "David",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 300.0,
+          "bidder": "Lauren",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 306.0,
+          "bidder": "Rachel",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 313.0,
+          "bidder": "John",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 349.0,
+          "bidder": "Stephen",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 381.0,
+          "bidder": "Adam",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 413.0,
+          "bidder": "Ashley",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 448.0,
+          "bidder": "Clinton",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 460.0,
+          "bidder": "Cathy",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 476.0,
+          "bidder": "Joshua",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 521.0,
+          "bidder": "Martha",
+          "ts": "2025-06-23T09:23:11.335000"
+        }
+      ]
+    },
+    {
+      "id": "f1612f9a-b8dd-4f02-8676-d8a820f06685",
+      "name": "Mandatory dynamic contingency",
+      "desc": "Congress Republican program society rock me.",
+      "endTime": "2025-06-23T09:28:11.320000",
+      "highestBid": 672,
+      "bids": [
+        {
+          "amount": 443.0,
+          "bidder": "Gregory",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 457.0,
+          "bidder": "Lisa",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 472.0,
+          "bidder": "Richard",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 485.0,
+          "bidder": "Tammy",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 528.0,
+          "bidder": "Kent",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 564.0,
+          "bidder": "William",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 591.0,
+          "bidder": "Austin",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 637.0,
+          "bidder": "Amber",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 667.0,
+          "bidder": "Robert",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 672.0,
+          "bidder": "Samuel",
+          "ts": "2025-06-23T09:23:11.335000"
+        }
+      ]
+    },
+    {
+      "id": "345a533a-3dbf-4c18-a448-d955a5a73bc6",
+      "name": "Compatible global portal",
+      "desc": "Dream ever perhaps plan consumer mission let blood.",
+      "endTime": "2025-06-23T09:27:11.320000",
+      "highestBid": 1152,
+      "bids": [
+        {
+          "amount": 419.0,
+          "bidder": "Jeremiah",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 439.0,
+          "bidder": "Anita",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 456.0,
+          "bidder": "Victor",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 475.0,
+          "bidder": "Andrea",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 510.0,
+          "bidder": "Donald",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 516.0,
+          "bidder": "Brandy",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 533.0,
+          "bidder": "Jason",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 540.0,
+          "bidder": "William",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 572.0,
+          "bidder": "Martha",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 595.0,
+          "bidder": "Jeffrey",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 626.0,
+          "bidder": "Tamara",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 637.0,
+          "bidder": "Kimberly",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 683.0,
+          "bidder": "Brianna",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 720.0,
+          "bidder": "David",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 760.0,
+          "bidder": "Valerie",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 801.0,
+          "bidder": "Douglas",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 839.0,
+          "bidder": "Michael",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 862.0,
+          "bidder": "Jennifer",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 903.0,
+          "bidder": "Raymond",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 950.0,
+          "bidder": "Aaron",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 968.0,
+          "bidder": "James",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1012.0,
+          "bidder": "Robert",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1057.0,
+          "bidder": "Joshua",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1084.0,
+          "bidder": "Deborah",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1108.0,
+          "bidder": "Matthew",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 1152.0,
+          "bidder": "Paige",
+          "ts": "2025-06-23T09:23:11.335000"
+        }
+      ]
+    },
+    {
+      "id": "ca82959c-bf79-4196-946e-7514008e6a6c",
+      "name": "Vision-oriented motivating migration",
+      "desc": "Billion page some happy consumer leave for.",
+      "endTime": "2025-06-23T09:27:11.320000",
+      "highestBid": 806,
+      "bids": [
+        {
+          "amount": 151.0,
+          "bidder": "Jonathan",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 159.0,
+          "bidder": "Regina",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 208.0,
+          "bidder": "Richard",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 231.0,
+          "bidder": "Marco",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 271.0,
+          "bidder": "Michael",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 309.0,
+          "bidder": "Miguel",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 317.0,
+          "bidder": "Paul",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 355.0,
+          "bidder": "Christina",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 366.0,
+          "bidder": "Darlene",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 405.0,
+          "bidder": "Stephanie",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 430.0,
+          "bidder": "Matthew",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 469.0,
+          "bidder": "Justin",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 490.0,
+          "bidder": "Mario",
+          "ts": "2025-06-23T09:23:11.335000"
+        },
+        {
+          "amount": 506.0,
+          "bidder": "Dennis",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 518.0,
+          "bidder": "Morgan",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 541.0,
+          "bidder": "Kristopher",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 569.0,
+          "bidder": "Melissa",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 592.0,
+          "bidder": "Nancy",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 629.0,
+          "bidder": "Christina",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 636.0,
+          "bidder": "Richard",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 651.0,
+          "bidder": "Kelly",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 662.0,
+          "bidder": "Brenda",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 671.0,
+          "bidder": "Jennifer",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 705.0,
+          "bidder": "Christine",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 735.0,
+          "bidder": "Elizabeth",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 771.0,
+          "bidder": "David",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 806.0,
+          "bidder": "Kevin",
+          "ts": "2025-06-23T09:23:11.351000"
+        }
+      ]
+    },
+    {
+      "id": "b2faae91-08ad-4888-827c-35a285652335",
+      "name": "Automated logistical benchmark",
+      "desc": "Long service wife job car.",
+      "endTime": "2025-06-23T09:32:11.320000",
+      "highestBid": 936,
+      "bids": [
+        {
+          "amount": 347.0,
+          "bidder": "Ashley",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 383.0,
+          "bidder": "Kaitlyn",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 390.0,
+          "bidder": "Wayne",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 402.0,
+          "bidder": "Daniel",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 435.0,
+          "bidder": "Ryan",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 472.0,
+          "bidder": "Anthony",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 497.0,
+          "bidder": "Michelle",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 506.0,
+          "bidder": "Eric",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 535.0,
+          "bidder": "Leah",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 576.0,
+          "bidder": "Joshua",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 619.0,
+          "bidder": "Daniel",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 636.0,
+          "bidder": "Valerie",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 647.0,
+          "bidder": "Richard",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 696.0,
+          "bidder": "Brooke",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 703.0,
+          "bidder": "Krystal",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 747.0,
+          "bidder": "Tiffany",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 759.0,
+          "bidder": "Justin",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 805.0,
+          "bidder": "Laura",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 827.0,
+          "bidder": "Mary",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 848.0,
+          "bidder": "Tyler",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 881.0,
+          "bidder": "Julie",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 929.0,
+          "bidder": "Lindsay",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 936.0,
+          "bidder": "James",
+          "ts": "2025-06-23T09:23:11.351000"
+        }
+      ]
+    },
+    {
+      "id": "a91704a9-9a1a-4dd2-b9cd-13b6626ca7e6",
+      "name": "Organic client-server success",
+      "desc": "Media only former imagine.",
+      "endTime": "2025-06-23T09:27:11.320000",
+      "highestBid": 263,
+      "bids": [
+        {
+          "amount": 199.0,
+          "bidder": "Daniel",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 226.0,
+          "bidder": "Brian",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 263.0,
+          "bidder": "Matthew",
+          "ts": "2025-06-23T09:23:11.351000"
+        }
+      ]
+    },
+    {
+      "id": "f5561985-1bdc-42c9-be86-eb57b3e4c314",
+      "name": "Integrated non-volatile support",
+      "desc": "Sure always research.",
+      "endTime": "2025-06-23T09:31:11.320000",
+      "highestBid": 1021,
+      "bids": [
+        {
+          "amount": 362.0,
+          "bidder": "Ray",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 399.0,
+          "bidder": "Tracy",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 436.0,
+          "bidder": "Michael",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 455.0,
+          "bidder": "Sean",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 480.0,
+          "bidder": "Shelley",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 496.0,
+          "bidder": "Spencer",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 505.0,
+          "bidder": "Brandon",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 546.0,
+          "bidder": "Rita",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 575.0,
+          "bidder": "Lisa",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 603.0,
+          "bidder": "Tanya",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 615.0,
+          "bidder": "Steven",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 645.0,
+          "bidder": "Jeffrey",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 678.0,
+          "bidder": "Cindy",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 725.0,
+          "bidder": "Kimberly",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 733.0,
+          "bidder": "Jared",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 742.0,
+          "bidder": "Jerry",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 775.0,
+          "bidder": "Jason",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 818.0,
+          "bidder": "Xavier",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 842.0,
+          "bidder": "John",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 860.0,
+          "bidder": "Edward",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 908.0,
+          "bidder": "Deborah",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 947.0,
+          "bidder": "Jesse",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 997.0,
+          "bidder": "Toni",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 1021.0,
+          "bidder": "Christopher",
+          "ts": "2025-06-23T09:23:11.351000"
+        }
+      ]
+    },
+    {
+      "id": "ff9f1d58-8250-4f4f-99fe-3a1bf77ed2bf",
+      "name": "Synchronized regional software",
+      "desc": "Citizen pretty improve trial success system.",
+      "endTime": "2025-06-23T09:27:11.320000",
+      "highestBid": 1181,
+      "bids": [
+        {
+          "amount": 308.0,
+          "bidder": "Greg",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 334.0,
+          "bidder": "Julie",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 353.0,
+          "bidder": "Dana",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 386.0,
+          "bidder": "Thomas",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 429.0,
+          "bidder": "Jonathan",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 471.0,
+          "bidder": "Jennifer",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 486.0,
+          "bidder": "Travis",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 507.0,
+          "bidder": "James",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 556.0,
+          "bidder": "Samantha",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 569.0,
+          "bidder": "Charles",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 587.0,
+          "bidder": "Jeremiah",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 633.0,
+          "bidder": "Aaron",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 662.0,
+          "bidder": "Alexander",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 669.0,
+          "bidder": "Barry",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 699.0,
+          "bidder": "Raven",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 724.0,
+          "bidder": "Olivia",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 741.0,
+          "bidder": "Clarence",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 791.0,
+          "bidder": "Mark",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 807.0,
+          "bidder": "Annette",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 849.0,
+          "bidder": "Amy",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 858.0,
+          "bidder": "Carmen",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 880.0,
+          "bidder": "Isaiah",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 905.0,
+          "bidder": "Lucas",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 929.0,
+          "bidder": "Bethany",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 937.0,
+          "bidder": "Christina",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 977.0,
+          "bidder": "James",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 993.0,
+          "bidder": "Christopher",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 1011.0,
+          "bidder": "Courtney",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 1057.0,
+          "bidder": "Alyssa",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 1077.0,
+          "bidder": "Micheal",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 1127.0,
+          "bidder": "James",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 1176.0,
+          "bidder": "Ashley",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 1181.0,
+          "bidder": "Erica",
+          "ts": "2025-06-23T09:23:11.351000"
+        }
+      ]
+    },
+    {
+      "id": "53d00bde-7922-4d45-99ee-fa6197873d05",
+      "name": "Multi-layered local protocol",
+      "desc": "Laugh whom camera person.",
+      "endTime": "2025-06-23T09:28:11.320000",
+      "highestBid": 589,
+      "bids": [
+        {
+          "amount": 211.0,
+          "bidder": "Martha",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 220.0,
+          "bidder": "Joshua",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 226.0,
+          "bidder": "Erin",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 275.0,
+          "bidder": "Mariah",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 286.0,
+          "bidder": "Nathan",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 312.0,
+          "bidder": "Diane",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 352.0,
+          "bidder": "Kimberly",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 368.0,
+          "bidder": "Tiffany",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 377.0,
+          "bidder": "Warren",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 414.0,
+          "bidder": "Levi",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 455.0,
+          "bidder": "John",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 462.0,
+          "bidder": "Molly",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 499.0,
+          "bidder": "Joseph",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 509.0,
+          "bidder": "Daniel",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 526.0,
+          "bidder": "Christine",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 573.0,
+          "bidder": "Nicolas",
+          "ts": "2025-06-23T09:23:11.351000"
+        },
+        {
+          "amount": 589.0,
+          "bidder": "Melissa",
+          "ts": "2025-06-23T09:23:11.351000"
+        }
+      ]
+    }
+  ]
+}
