@@ -51,3 +51,7 @@ async def _stats():
         {"productId": p.id, "highestBid": p.highestBid, "bidCount": len(p.bids)}
         for p in prods
     ]
+
+# Optional
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
