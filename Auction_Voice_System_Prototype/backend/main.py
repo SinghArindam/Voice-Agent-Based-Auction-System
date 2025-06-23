@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException, status
+from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 try:
     from backend.models import Bid
@@ -11,12 +12,12 @@ except Exception as e:
 
 app = FastAPI(title="Voice Auction API")
 
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["*"],   # tighten in production
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],   # tighten in production
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.on_event("startup")
