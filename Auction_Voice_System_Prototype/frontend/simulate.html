@@ -2,100 +2,172 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Simulated Call • Auction Voice Agent</title>
 
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- Font-Awesome for the microphone icon -->
+<!-- Icons -->
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
-body{font-family:'Space Grotesk',sans-serif;background:#000;color:#fff;min-height:100vh}
+body{font-family:'Space Grotesk',sans-serif;background:#000;color:#fff;min-height:100vh;overflow:hidden}
 
-/* gradient headline text */
-.gradient-text{
-  background:linear-gradient(90deg,#00ff9d,#00b8ff,#ff00aa);
-  -webkit-background-clip:text;color:transparent
+/* ───────────────────  RIPPLING BACKGROUND  ─────────────────── */
+.ripple-bg{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:350px;height:350px;pointer-events:none;z-index:0;
+}
+.ripple-bg span{
+  position:absolute;display:block;width:100%;height:100%;
+  border:3px solid #00ff9d;border-radius:50%;
+  animation:ripple 6s linear infinite;
+}
+.ripple-bg span:nth-child(2){border-color:#00b8ff;animation-delay:1.2s}
+.ripple-bg span:nth-child(3){border-color:#ff00aa;animation-delay:2.4s}
+@keyframes ripple{
+  0%  {transform:scale(.4);opacity:.9}
+  70% {opacity:.05}
+  100%{transform:scale(3);opacity:0}
 }
 
-/* card */
-.call-card{
-  background:#121212;
-  border:1px solid #1e1e1e;
-  border-radius:1.5rem;
-  box-shadow:0 0 25px rgba(0,255,157,.15);
-  width:90%;
-  max-width:420px;
-  height:80vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  overflow:hidden;
-}
+/* ───────────────────  CARD & CONTENT  ─────────────────── */
+.gradient-text{background:linear-gradient(90deg,#00ff9d,#00b8ff,#ff00aa);
+               -webkit-background-clip:text;color:transparent}
+.card{background:#121212;border:1px solid #1e1e1e;border-radius:1.25rem;
+      position:relative;z-index:1}
+.bubble{max-width:90%;padding:.65rem 1rem;border-radius:1rem;margin:.25rem 0}
+.ai   {background:#1e1e1e}
+.user {background:#00ff9d;color:#000;margin-left:auto}
 
-/* premium animated microphone */
-.mic-wrapper{
-  position:relative;width:104px;height:104px;
-  display:flex;align-items:center;justify-content:center;
-}
-.mic-circle{
-  position:absolute;
-  width:100%;height:100%;
+/* CALL card glow */
+/* .call-card::before{content:"";position:absolute;inset:-2px;border-radius:inherit;
+  background:conic-gradient(from 180deg at 50% 50%,#00ff9d,#00b8ff,#ff00aa,#00ff9d);
+  filter:blur(10px);animation:spin 6s linear infinite;z-index:-1}
+@keyframes spin{to{transform:rotate(1turn)}} */
+
+/* microphone */
+.mic-wrapper{position:relative;width:140px;height:140px;display:flex;
+             align-items:center;justify-content:center}
+.mic-circle{position:absolute;width:100%;height:100%;
   background:linear-gradient(135deg,#00ff9d,#00b8ff,#ff00aa);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:
-     0 0 25px rgba(0,255,157,.35),
-     0 0 45px rgba(0,184,255,.28),
-     0 0 65px rgba(255,0,170,.22);
-}
-.mic-icon{font-size:46px;color:#000;z-index:2}
-
-/* pulsating rings animation */
-@keyframes pulse{0%{transform:scale(.8);opacity:.7}50%{transform:scale(1.35);opacity:0}100%{transform:scale(.8);opacity:.7}}
-.pulse-ring{
-  position:absolute;border:3px solid #00ff9d;border-radius:50%;
-  width:130%;height:130%;opacity:.7;animation:pulse 3s infinite;
-}
-.pulse-ring:nth-child(2){animation-delay:.75s}
-.pulse-ring:nth-child(3){animation-delay:1.5s}
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 40px rgba(0,255,157,.35),0 0 70px rgba(0,184,255,.25),
+             0 0 90px rgba(255,0,170,.2)}
+.mic-icon{font-size:60px;color:#000;z-index:2}
+@keyframes pulse{0%{transform:scale(.8);opacity:.7}50%{transform:scale(1.4);opacity:0}100%{transform:scale(.8);opacity:.7}}
+.pulse-ring{position:absolute;border:3px solid #00ff9d;border-radius:50%;
+            width:160%;height:160%;opacity:.7;animation:pulse 3s infinite}
+.pulse-ring:nth-child(2){animation-delay:.9s}
+.pulse-ring:nth-child(3){animation-delay:1.8s}
 </style>
 </head>
-<body class="flex items-center justify-center">
 
-<!-- CARD -->
-<div class="call-card">
-  <div class="absolute top-8 text-center px-8">
-    <h1 class="gradient-text text-2xl font-bold">Simulated Call</h1>
-    <p class="text-gray-400 mt-1 text-sm">Voice connection established</p>
-  </div>
+<body class="flex flex-col min-h-screen">
 
-  <!-- mic animation -->
-  <div class="mic-wrapper mt-12 mb-16">
-    <div class="mic-circle">
-      <i class="fas fa-microphone mic-icon"></i>
-    </div>
-    <span class="pulse-ring"></span>
-    <span class="pulse-ring"></span>
-    <span class="pulse-ring"></span>
-  </div>
-
-  <!-- status area -->
-  <div class="absolute bottom-8 w-full text-center">
-    <p class="text-gray-400 text-xs tracking-wide" id="duration">Call time 00:00</p>
-  </div>
+<!-- Rippling background -->
+<div class="ripple-bg">
+  <span></span><span></span><span></span>
 </div>
 
+<!-- HEADER -->
+<header class="w-full border-b border-[#1e1e1e] py-5 px-6 flex justify-between items-center z-10">
+  <span class="text-xl font-bold gradient-text">Auction Voice Agent</span>
+  <a href="index.html" class="text-gray-400 hover:text-[#00ff9d] text-sm">⟵ Home</a>
+</header>
+
+<!-- MAIN -->
+<main class="flex-1 flex flex-col gap-8 lg:flex-row lg:gap-6 px-4 py-8 z-10">
+
+  <!-- CHAT -->
+  <div class="card flex flex-col lg:flex-1 h-[80vh] backdrop-blur-sm/30">
+    <header class="p-6 border-b border-[#1e1e1e] text-center">
+      <h2 class="text-xl font-semibold gradient-text">Chat Window</h2>
+    </header>
+
+    <div id="chat-log" class="flex-1 overflow-y-auto p-6 scroll-smooth">
+      <div class="bubble ai">Assistant: Hello! Say “list items” to hear current auctions.</div>
+    </div>
+
+    <form id="chat-form" class="p-6 border-t border-[#1e1e1e] flex gap-3">
+      <input id="chat-input" autocomplete="off" placeholder="Say something..."
+             class="flex-1 bg-[#1e1e1e]/70 px-4 py-3 rounded-xl focus:outline-none"/>
+      <button type="submit"
+              class="bg-[#00ff9d] text-black px-6 rounded-xl font-semibold hover:bg-[#00d97d]">
+        Send
+      </button>
+    </form>
+  </div>
+
+  <!-- CALL STATUS -->
+  <div class="card call-card h-[80vh] w-full lg:w-[26rem] flex flex-col items-center justify-center">
+    <div class="mic-wrapper mb-16">
+      <div class="mic-circle"><i class="fas fa-microphone mic-icon"></i></div>
+      <span class="pulse-ring"></span><span class="pulse-ring"></span><span class="pulse-ring"></span>
+    </div>
+    <p class="text-gray-400 tracking-widest text-xl" id="call-time">00:00</p>
+  </div>
+
+  <!-- BID HISTORY -->
+  <div class="card flex flex-col lg:flex-1 h-[80vh] backdrop-blur-sm/30">
+    <header class="p-6 border-b border-[#1e1e1e]">
+      <h2 class="text-xl font-semibold text-[#00b8ff]">Recent Bids</h2>
+    </header>
+    <main id="bid-list" class="flex-1 overflow-y-auto p-6 space-y-4 text-sm"></main>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="text-center text-gray-500 text-xs py-4 border-t border-[#1e1e1e] z-10">
+  © 2025 OmniDimension
+</footer>
+
+<!-- JS -->
 <script>
-/* simple running timer */
-const dur=document.getElementById('duration');
-let sec=0;setInterval(()=>{sec++;const m=String(Math.floor(sec/60)).padStart(2,'0');
-const s=String(sec%60).padStart(2,'0');dur.textContent=`Call time ${m}:${s}`},1000);
+const AGENT = "http://localhost:5000/simulate";
+const API   = "http://localhost:8000";
+
+/* CHAT */
+const log=document.getElementById('chat-log');
+const inp=document.getElementById('chat-input');
+document.getElementById('chat-form').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const txt=inp.value.trim(); if(!txt) return;
+  addBubble(`You: ${txt}`,'user'); inp.value="";
+  try{
+    const {text}=await fetch(AGENT,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({utterance:txt,callerId:'web'})}).then(r=>r.json());
+    addBubble(`Assistant: ${text}`,'ai');
+  }catch{addBubble("Assistant: (error)",'ai')}
+});
+function addBubble(t,c){
+  const d=document.createElement('div');d.className=`bubble ${c}`;d.textContent=t;
+  log.appendChild(d);log.scrollTop=log.scrollHeight;
+}
+
+/* TIMER */
+const timeEl=document.getElementById('call-time');let sec=0;
+setInterval(()=>{sec++;timeEl.textContent=
+  `${String(sec/60|0).padStart(2,'0')}:${String(sec%60).padStart(2,'0')}`},1000);
+
+/* BIDS */
+async function refreshBids(){
+  try{
+    const prods=await fetch(API+"/products").then(r=>r.json());
+    const all=prods.flatMap(p=>p.bids.map(b=>({...b,pname:p.name})))
+                   .sort((a,b)=>new Date(b.ts)-new Date(a.ts)).slice(0,50);
+    const list=document.getElementById('bid-list');list.innerHTML="";
+    all.forEach(b=>{
+      list.insertAdjacentHTML('beforeend',`
+        <div class="flex justify-between border-b border-[#1e1e1e] pb-2">
+          <span>${b.pname}<span class="text-gray-500 ml-1">by ${b.bidder}</span></span>
+          <span class="text-[#00ff9d] font-medium">$${b.amount}</span>
+        </div>`);});
+  }catch{}
+}
+refreshBids();setInterval(refreshBids,5000);
 </script>
 </body>
 </html>
