@@ -2,3 +2,6 @@
 Auction_Voice_System/backend/.env
 /Auction_Voice_System/__pycache__
 /Auction_Voice_System/backend/__pycache__
+.venv
+__pycache__
+.pyc
