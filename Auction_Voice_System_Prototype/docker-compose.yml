@@ -1,0 +1,66 @@
+version: "3.9"
+
+services:
+  # ---- 1) database ---------------------------------------------------
+  mongo:
+    image: mongo:6
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: auction
+    volumes:
+      - mongo_data:/data/db
+    ports:            # expose for local dev / Compass
+      - "27017:27017"
+
+  # ---- 2) FastAPI backend -------------------------------------------
+  backend:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://mongo:27017/auction
+      AUCTION_API_BASE: http://backend:8000
+      OD_API_KEY: ${OD_API_KEY}          # read from host .env
+    ports:
+      - "8000:8000"
+    command: >
+      uvicorn backend.main:app
+      --host 0.0.0.0
+      --port 8000
+      --proxy-headers
+
+  # # ---- 3) one-shot seeder -------------------------------------------
+  # seed-data:
+  #   build: .
+  #   depends_on:
+  #     - backend
+  #   environment:
+  #     MONGO_URI: mongodb://mongo:27017/auction
+  #   entrypoint: ["python", "seed_fake_data.py", "--products", "20", "--max-bids", "40"]
+  #   restart: "no"     # run once
+
+  # ---- 4) one-shot OmniDimension agent bootstrap --------------------
+  agent-bootstrap:
+    build: .
+    depends_on:
+      - backend
+    environment:
+      OD_API_KEY: ${OD_API_KEY}
+      AUCTION_API_BASE: http://backend:8000
+    entrypoint: ["python", "-m", "agent"]
+    restart: "no"
+
+  # ---- 5) static web (prototype UI) ---------------------------------
+  web:
+    image: nginx:alpine
+    depends_on:
+      - backend
+    volumes:
+      - ./simulate_prototype.html:/usr/share/nginx/html/index.html:ro
+    ports:
+      - "80:80"
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
