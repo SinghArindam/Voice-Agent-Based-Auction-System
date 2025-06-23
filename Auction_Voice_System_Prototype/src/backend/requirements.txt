@@ -1,0 +1,14 @@
+fastapi==0.111.0
+uvicorn==0.29.0
+motor<3.6
+pymongo<4.9
+python-dotenv==1.0.1
+pydantic==2.7.1
+pytest 
+httpx
+httpx[http2] 
+pytest-asyncio==0.21.2
+trio
+anyio 
+omnidimension
+python-dotenv
