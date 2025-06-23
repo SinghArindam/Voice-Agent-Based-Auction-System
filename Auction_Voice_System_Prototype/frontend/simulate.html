@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Simulated Call • Auction Voice Agent</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+  body{font-family:'Space Grotesk',sans-serif;background:#000;color:#fff;min-height:100vh}
+  .gradient-text{background:linear-gradient(90deg,#00ff9d,#00b8ff,#ff00aa);
+                 -webkit-background-clip:text;color:transparent}
+  .bubble{max-width:75%;padding:.65rem 1rem;border-radius:1rem;margin:.25rem 0}
+  .ai   {background:#1e1e1e}
+  .user {background:#00ff9d;color:#000;margin-left:auto}
+</style>
+</head>
+<body class="flex flex-col h-screen px-4">
+
+  <!-- Header -->
+  <header class="py-6 text-center">
+    <h1 class="text-3xl font-bold gradient-text">Simulated Call</h1>
+    <p class="text-gray-400 text-sm mt-1">Type like you’d speak; the agent replies instantly.</p>
+  </header>
+
+  <!-- Chat Log -->
+  <main id="log" class="flex-1 overflow-y-auto border border-[#1e1e1e] rounded-xl p-4">
+    <div class="bubble ai">Assistant: Hello! Say “list items” to hear current auctions.</div>
+  </main>
+
+  <!-- Input -->
+  <form id="chat-form" class="mt-4 flex gap-3">
+    <input id="msg" autocomplete="off" placeholder="Your message..."
+           class="flex-1 bg-[#1e1e1e] text-white px-4 py-3 rounded-xl focus:outline-none"/>
+    <button class="bg-[#00ff9d] text-black px-6 rounded-xl font-semibold hover:bg-[#00d97d]" type="submit">
+      Send
+    </button>
+  </form>
+
+<script>
+const AGENT="http://localhost:5000/simulate";
+const log=document.getElementById('log');
+const scroll=()=>log.scrollTop=log.scrollHeight;
+
+function add(text,cls){
+  const div=document.createElement('div');
+  div.className=`bubble ${cls}`;div.textContent=text;log.appendChild(div);scroll();
+}
+
+document.getElementById('chat-form').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const input=document.getElementById('msg');
+  const txt=input.value.trim(); if(!txt) return;
+  add("You: "+txt,"user"); input.value="";
+  const res=await fetch(AGENT,{method:"POST",headers:{'Content-Type':'application/json'},
+     body:JSON.stringify({utterance:txt,callerId:"web"})}).then(r=>r.json());
+  add("Assistant: "+res.text,"ai");
+});
+</script>
+</body>
+</html>
