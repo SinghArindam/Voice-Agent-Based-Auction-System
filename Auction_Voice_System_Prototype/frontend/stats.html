@@ -3,51 +3,88 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Live Stats • Auction Voice Agent</title>
+<title>Simulated Call • Auction Voice Agent</title>
+
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
-  body{font-family:'Space Grotesk',sans-serif;background:#000;color:#fff;min-height:100vh}
-  .gradient-text{background:linear-gradient(90deg,#00ff9d,#00b8ff,#ff00aa);
-                 -webkit-background-clip:text;color:transparent}
-  .card{background:#121212;border:1px solid #1e1e1e;border-radius:1.2rem;padding:2rem}
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+body{font-family:'Space Grotesk',sans-serif;background:#000;color:#fff;min-height:100vh}
+
+/* gradient headline text */
+.gradient-text{
+  background:linear-gradient(90deg,#00ff9d,#00b8ff,#ff00aa);
+  -webkit-background-clip:text;color:transparent
+}
+
+/* card */
+.call-card{
+  background:#121212;
+  border:1px solid #1e1e1e;
+  border-radius:1.5rem;
+  box-shadow:0 0 25px rgba(0,255,157,.15);
+  width:90%;
+  max-width:420px;
+  height:80vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+
+/* premium animated microphone */
+.mic-wrapper{
+  position:relative;width:104px;height:104px;
+  display:flex;align-items:center;justify-content:center;
+}
+.mic-circle{
+  position:absolute;
+  width:100%;height:100%;
+  background:linear-gradient(135deg,#00ff9d,#00b8ff,#ff00aa);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:
+     0 0 25px rgba(0,255,157,.35),
+     0 0 45px rgba(0,184,255,.28),
+     0 0 65px rgba(255,0,170,.22);
+}
+.mic-icon{font-size:46px;color:#000;z-index:2}
+
+/* pulsating rings animation */
+@keyframes pulse{0%{transform:scale(.8);opacity:.7}50%{transform:scale(1.35);opacity:0}100%{transform:scale(.8);opacity:.7}}
+.pulse-ring{
+  position:absolute;border:3px solid #00ff9d;border-radius:50%;
+  width:130%;height:130%;opacity:.7;animation:pulse 3s infinite;
+}
+.pulse-ring:nth-child(2){animation-delay:.75s}
+.pulse-ring:nth-child(3){animation-delay:1.5s}
 </style>
 </head>
-<body class="px-6 py-8">
+<body class="flex items-center justify-center">
 
-<!-- HEADER -->
-    <header class="w-full border-b border-[#1e1e1e] py-3 px-6 flex justify-between items-center z-5">
-    <span class="text-xl font-bold gradient-text">Auction Voice Agent</span>
-    <a href="index.html" class="text-gray-400 hover:text-[#00ff9d] text-sm">⟵ Home</a>
-    </header>
+<div class="call-card">
+  <div class="absolute top-8 text-center px-8">
+    <h1 class="gradient-text text-2xl font-bold">Simulated Call</h1>
+    <p class="text-gray-400 mt-1 text-sm">Voice connection established</p>
+  </div>
 
-  <header class="mb-10 text-center">
-    <h1 class="text-4xl font-bold gradient-text">Live Auction Stats</h1>
-    <p class="text-gray-400">Data auto-refreshes every 5 seconds.</p>
-  </header>
-
-  <!-- KPI Cards -->
-  <section id="kpi" class="grid gap-6 md:grid-cols-3 mb-12"></section>
-
-  <!-- Active auctions table -->
-  <section class="card mb-12">
-    <h2 class="text-xl font-semibold mb-4">Active Auctions</h2>
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm text-left whitespace-nowrap" id="prod-table">
-        <thead class="text-gray-400 border-b border-[#1e1e1e]">
-          <tr><th>ID</th><th>Name</th><th>Highest Bid</th><th>Bids</th><th>Ends In</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+  <div class="mic-wrapper mt-12 mb-16">
+    <div class="mic-circle">
+      <i class="fas fa-microphone mic-icon"></i>
     </div>
-  </section>
+    <span class="pulse-ring"></span>
+    <span class="pulse-ring"></span>
+    <span class="pulse-ring"></span>
+  </div>
 
-  <!-- Recent bids -->
-  <section class="card">
-    <h2 class="text-xl font-semibold mb-4">Recent Bids</h2>
-    <ul id="bid-log" class="max-h-96 overflow-y-auto space-y-4"></ul>
-  </section>
+  <div class="absolute bottom-8 w-full text-center">
+    <p class="text-gray-400 text-xs tracking-wide" id="duration">Call time 00:00</p>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer class="text-center text-gray-500 text-xs py-4 border-t border-[#1e1e1e] z-10">
@@ -55,51 +92,10 @@
 </footer>
 
 <script>
-const API="http://localhost:8000";
-const kpi=document.getElementById('kpi');
-const tBody=document.querySelector('#prod-table tbody');
-const bidLog=document.getElementById('bid-log');
-
-function minsLeft(ts){return Math.max(0,Math.floor((new Date(ts)-Date.now())/60000))+" min";}
-function card(label,val,color,icon){return`
-  <div class="card flex justify-between items-center">
-    <div>
-      <p class="text-gray-400 text-xs">${label}</p>
-      <h3 class="text-2xl font-bold text-${color}">${val}</h3>
-    </div>
-    <i class="fa-solid ${icon} text-3xl text-${color}"></i>
-  </div>`;}
-
-async function refresh(){
-  // KPIs
-  const stats=await fetch(API+"/stats").then(r=>r.json());
-  const tot=stats.reduce((a,b)=>a+b.bidCount,0);
-  const hi=Math.max(...stats.map(s=>s.highestBid,0));
-  kpi.innerHTML=card("Active Auctions",stats.length,"[#00ff9d]","fa-gavel")+
-                card("Total Bids",tot,"[#00b8ff]","fa-hand-holding-usd")+
-                card("Highest Bid",`$${hi}`,"[#ff00aa]","fa-trophy");
-
-  // Products table
-  const prods=await fetch(API+"/products").then(r=>r.json());
-  tBody.innerHTML=prods.map(p=>`
-      <tr class="border-b border-[#1e1e1e]">
-        <td class="pr-3 py-2">${p.id.slice(0,6)}…</td>
-        <td class="pr-3 py-2">${p.name}</td>
-        <td class="pr-3 py-2">$${p.highestBid}</td>
-        <td class="pr-3 py-2">${p.bids.length}</td>
-        <td class="pr-3 py-2">${minsLeft(p.endTime)}</td>
-      </tr>`).join("");
-
-  // Recent bids
-  const all=prods.flatMap(p=>p.bids.map(b=>({...b,product:p.name})))
-                 .sort((a,b)=>new Date(b.ts)-new Date(a.ts)).slice(0,25);
-  bidLog.innerHTML=all.map(b=>`
-    <li class="flex justify-between items-center border-b border-[#1e1e1e] pb-2">
-      <span>${b.product}<span class="text-gray-500 text-xs ml-2">by ${b.bidder}</span></span>
-      <span class="text-[#00ff9d] font-medium">$${b.amount}</span>
-    </li>`).join("");
-}
-refresh();setInterval(refresh,5000);
+/* simple running timer */
+const dur=document.getElementById('duration');
+let sec=0;setInterval(()=>{sec++;const m=String(Math.floor(sec/60)).padStart(2,'0');
+const s=String(sec%60).padStart(2,'0');dur.textContent=`Call time ${m}:${s}`},1000);
 </script>
 </body>
 </html>
