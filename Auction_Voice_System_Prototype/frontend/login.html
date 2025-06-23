@@ -37,6 +37,7 @@
     display: none; /* Initially hidden */
     align-items: center;
     justify-content: center;
+    z-index: 10;
     backdrop-filter: blur(5px);
   }
   #video-container {
@@ -46,6 +47,7 @@
     border-radius: 1rem;
     overflow: hidden;
     border: 2px solid #00ff9d;
+    box-shadow: 0 0 25px rgba(0, 255, 157, 0.35);
   }
   #video {
     width: 100%;
@@ -57,13 +59,15 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0,255,157,0.5), transparent);
-    animation: scan 3s linear 1;
+    height: 3px;
+    background: #00ff9d;
+    box-shadow: 0 0 10px #00ff9d;
+    animation: scan 3s linear infinite;
   }
   @keyframes scan {
-    0% { top: 100%; }
-    100% { top: -100%; }
+    0% { top: 0%; }
+    50% { top: 99%; }
+    100% { top: 0%; }
   }
 </style>
 </head>
@@ -73,7 +77,7 @@
     <i class="fa-solid fa-shield-halved text-5xl gradient-text mb-6"></i>
     <h1 class="text-3xl font-bold mb-2">Auction System</h1>
     <p class="text-gray-400 mb-8">Login with Face ID to continue</p>
-    <button id="login-btn" class="bg-gradient-to-r from-[#00ff9d] to-[#00b8ff] text-black font-bold py-3 px-8 rounded-lg">
+    <button id="login-btn" class="bg-gradient-to-r from-[#00ff9d] to-[#00b8ff] text-black font-bold py-3 px-8 rounded-lg transition-transform hover:scale-105">
       <i class="fa-solid fa-camera mr-2"></i>
       Authenticate
     </button>
@@ -83,43 +87,75 @@
     <div id="video-container">
       <video id="video" autoplay playsinline></video>
       <div class="scanner-animation"></div>
-      <p id="status-text" class="absolute bottom-4 left-0 right-0 text-center font-semibold text-lg"></p>
+      <p id="status-text" class="absolute bottom-4 left-0 right-0 text-center font-semibold text-lg bg-black bg-opacity-50 py-1"></p>
     </div>
   </div>
 
 <script>
+// --- ELEMENTS ---
 const loginBtn = document.getElementById('login-btn');
 const cameraModal = document.getElementById('camera-modal');
 const video = document.getElementById('video');
 const statusText = document.getElementById('status-text');
 
+// --- API & MOCKING ---
+
+// This is the backend endpoint we would contact if it existed.
+const API_ENDPOINT = "/api/v1/auth/face";
+
+/**
+ * Mocks an API call to a facial recognition endpoint.
+ * In a real app, this function would use fetch() to send video data.
+ * @returns {Promise<object>} A promise that resolves with a mock user token.
+ */
+function mockApiAuthentication() {
+  console.log(`Simulating API call to endpoint: ${API_ENDPOINT}`);
+  
+  return new Promise((resolve) => {
+    // Simulate a network delay of 2 seconds
+    setTimeout(() => {
+      console.log("API simulation successful.");
+      resolve({ 
+        success: true, 
+        token: 'dummy-jwt-token-for-user-12345',
+        message: 'Authentication successful.' 
+      });
+    }, 2000);
+  });
+}
+
+
+// --- EVENT LISTENERS ---
 loginBtn.addEventListener('click', async () => {
   cameraModal.style.display = 'flex';
   statusText.textContent = 'Starting camera...';
 
   try {
-    // Start camera stream
+    // 1. Start camera stream
     const stream = await navigator.mediaDevices.getUserMedia({ video: true });
     video.srcObject = stream;
     
+    // 2. Wait for video to start playing
     video.onloadedmetadata = () => {
-      // Once camera is ready, start the "authentication"
-      statusText.textContent = 'Scanning...';
+      statusText.textContent = 'Authenticating...';
       
-      // Simulate scanning for 3 seconds
-      setTimeout(() => {
-        statusText.textContent = 'Authenticated!';
-        // After another second, redirect to the main page
-        setTimeout(() => {
-          window.location.href = 'index.html';
-        }, 1000);
-      }, 3000);
+      // 3. Call the (mock) API
+      mockApiAuthentication().then(response => {
+        if (response.success) {
+          statusText.textContent = 'Authenticated!';
+          console.log('Received Auth Token:', response.token);
+          
+          // 4. Redirect to main page on success
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 1000);
+        }
+      });
     };
 
   } catch (err) {
     console.error("Error accessing camera: ", err);
     statusText.textContent = 'Camera access denied!';
-    // Hide modal after 2 seconds if camera fails
     setTimeout(() => {
         cameraModal.style.display = 'none';
     }, 2000);
