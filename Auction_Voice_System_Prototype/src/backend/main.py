@@ -1,5 +1,7 @@
 from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles     # NEW
+from fastapi.responses import FileResponse      # NEW
 from datetime import datetime
 try:
     from backend.models import Bid
