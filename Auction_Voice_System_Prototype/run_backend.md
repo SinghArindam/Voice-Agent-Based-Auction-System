@@ -13,6 +13,10 @@ python3 -m venv .venv
 ```bash
 source ./.venv/bin/activate
 ```
+# Install Dependencies/Packages
+```bash
+pip install -r .\backend\requirements.txt
+```
 
 # Run backend Server
 ```bash
